@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  solana_database:
+    image: postgres:17
+    container_name: database
+    restart: always
+    environment:
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_NAME: ${DATABASE_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  solana_bot_backend:
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - "7420:7420"
+    volumes:
+      - ./src:/opt/app-root/src:rw
+
+volumes:
+  postgres_data:

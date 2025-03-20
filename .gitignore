@@ -1,0 +1,10 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtualenv
+venv/
+# Logs
+*.log
