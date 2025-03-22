@@ -25,5 +25,17 @@ services:
     volumes:
       - ./src:/opt/app-root/src:rw
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: message_broker
+    restart: always
+    environment:
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
 volumes:
   postgres_data:

@@ -13,7 +13,7 @@ bot = Bot(token=TELEGRAM_BOT_TOKEN)
 telegram_app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Privet")
+    await update.message.reply_text("Hi! Send Solana wallet address")
 
 
 
